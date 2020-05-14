@@ -1,0 +1,48 @@
+
+<div class="container-camera">
+
+
+  <div class="title">
+    <div>
+       <!-- <div> <mat-icon>face</mat-icon> </div> -->
+        <label>Voter Facial Verification</label>
+    </div>
+      
+  </div>
+
+  <div class="camera_input">
+      
+    <div *ngIf="is_there_a_face" class="totop" style="top: 23%;"> <!-- delete this style when adding the mat icon top -->
+        <label> Place your face inside the square </label>  
+      </div>
+
+    <div>
+      <webcam class="web-cam" [height]="450" [width]="700"  [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
+        [imageQuality]="1"
+        (initError)="handleInitError($event)">
+      </webcam>
+   </div>
+    <div *ngIf="!is_there_a_face">
+        <div class="message_cam" style="bottom: 242px;margin-bottom: -42px;">  <!-- delete this style when adding the mat icon top -->
+             <label>  {{ message_cam }} </label>
+        </div>
+    </div>
+ 
+    <!--
+    <h4 *ngIf="errors.length > 0">Messages:</h4>
+    <ul *ngFor="let error of errors">
+      <li>{{error | json}}</li>
+    </ul>
+    -->
+  </div>
+
+  <div style="margin-bottom: -15px;" class="button__"> <!-- delete this style when adding the mat icon top -->
+      <button [disabled]="!is_there_a_face || delay_time!=0" mat-flat-button style="height: 50px; width: 100%;border-radius:0px;" (click)="captureImage()">
+       <label *ngIf="delay_time!=0" > {{ delay_time }} </label>  Continue
+        <mat-icon>send</mat-icon>
+      </button>
+   </div>
+
+</div>
+
+ <notifier-container></notifier-container>

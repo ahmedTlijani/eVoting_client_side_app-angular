@@ -1,0 +1,125 @@
+<h1 mat-dialog-title> {{ element.type }} Office Manager</h1>
+
+
+<div mat-dialog-content>
+
+  <form [formGroup]="responsableForm" (ngSubmit)="AddUpdateElement()">
+    
+    <div style="display:flex;padding: 20px;">
+       
+  
+    <div style="margin-right: 40px">
+       
+
+          <mat-form-field class="example-full-width">
+            <input minlength="1" formControlName="name" matInput placeholder="Name" autocomplete="name" [(ngModel)]="elementData.name">
+          </mat-form-field> <br>
+
+          <mat-form-field class="example-full-width">
+            <input minlength="1" formControlName="surname" matInput placeholder="Surname" autocomplete="surname" [(ngModel)]="elementData.surname">
+          </mat-form-field> <br>
+          
+          <mat-form-field *ngIf="element.type=='Update' "> <!-- update -->
+            <input matInput [matDatepicker]="picker" placeholder="Birth Date" [formControl]="date_naissance" formControlName="date_naissance"  >
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field> <br>
+          
+           <mat-form-field *ngIf="element.type!='Update'"> <!-- add -->
+            <input matInput [matDatepicker]="picker" placeholder="Birth Date" formControlName="date_naissance"  >
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field> <br>
+
+          <mat-form-field>
+            <mat-select placeholder="Gender" formControlName="gender" [(ngModel)]="elementData.gender" >
+              <mat-option value="male">Male</mat-option>
+              <mat-option value="female">Female</mat-option>
+            </mat-select>
+          </mat-form-field><br>
+
+          <mat-form-field *ngIf="element.type=='Update'">
+            <mat-label>Election Office</mat-label>
+            <mat-select formControlName="bureau" [(ngModel)]="elementData.bureau.name">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let bureau of bureaux" [value]="bureau.name" (click)="setBureauId(bureau)">{{bureau.name}}</mat-option>
+            </mat-select>
+          </mat-form-field><br>
+
+           <mat-form-field *ngIf="element.type!='Update'">
+            <mat-label>Election Office</mat-label>
+            <mat-select formControlName="bureau" [(ngModel)]="bureau">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let bureau of bureaux" [value]="bureau.name" (click)="setBureauId(bureau)">{{bureau.name}}</mat-option>
+            </mat-select>
+          </mat-form-field><br>
+
+
+
+
+    </div>
+    
+    <div style="margin-left: 40px">
+          <mat-form-field>
+            <mat-label>State</mat-label>
+            <mat-select formControlName="state" [(ngModel)]="state">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let state of states" [value]="state" (click)="loadProvince(state)">{{state}}</mat-option>
+            </mat-select>
+          </mat-form-field><br>
+          
+          <div>
+              <mat-form-field>
+              <mat-label>Province</mat-label>
+              <mat-select formControlName="province" [disabled]="provinces.length==0" [(ngModel)]="province">
+                <mat-option >None</mat-option>
+                <mat-option *ngFor="let province of provinces" [value]="province" (click)="getCodePostal()">{{province}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div *ngIf="code_postal.length!=0" style="text-align: left;margin-top: 0px;margin-bottom: 15px;">
+              <label style="padding: 5px;background-color: #2f2f2f;color: white;font-family: Arial;">Postal code: {{ code_postal }} </label> <br>
+            </div>
+          
+           </div>
+          
+          <mat-form-field class="example-full-width">
+            <input (keypress)="numberOnly($event)" onKeyPress="if(this.value.length==8) return false;" formControlName="cin" matInput placeholder="Cin" autocomplete="cin" [(ngModel)]="elementData.cin">
+          </mat-form-field> 
+          <div class="cin-error" *ngIf="cin_error.length!=0" >{{cin_error}}</div>
+          <br>
+          
+          <mat-form-field class="example-full-width">
+            <input minlength="6" formControlName="username" matInput placeholder="Username" autocomplete="username" [(ngModel)]="elementData.username">
+          </mat-form-field> <br>
+
+          <mat-form-field class="example-full-width">
+            <input minlength="6" formControlName="password" matInput placeholder="Password" autocomplete="password" [(ngModel)]="elementData.password">
+          </mat-form-field> <br>
+
+
+          <div>
+            <input  type="file" accept="image/*" (change)="onFileChanged($event)">
+            <div class="imgInfo" *ngIf="image_upladed_ || image_src_">
+              <label> {{image_src_}}</label>
+            </div>
+            <div style="margin-top: 10px;" *ngIf="selected_image_">
+                <button class="uplaodBtn" mat-button  type="button" (click)="uplaod()">
+                  <mat-icon style="margin-right: 5px;">cloud_upload</mat-icon>Upload</button>
+            </div>
+          </div> <br>
+
+
+    </div>
+  </div>
+    
+ </form>
+  
+</div>
+
+
+<div mat-dialog-actions align="end">
+  <button mat-button cdkFocusInitial (click)="onNoClick()">No Thanks</button>
+  <button mat-button   (click)="AddUpdateElement()" >{{ element.type }}</button>
+</div>
+
+<notifier-container></notifier-container>

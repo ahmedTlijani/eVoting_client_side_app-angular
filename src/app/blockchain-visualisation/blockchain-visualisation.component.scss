@@ -1,0 +1,113 @@
+//https://alligator.io/css/collapsible/
+
+.container-blockchain
+{
+    margin: 10px;
+}
+
+.container-blockchain .rest
+{
+    margin-top: 20px;
+}
+
+.rest .title
+{
+    font-size: 14px;
+    font-family: Arial;
+    text-align: center;
+    font-weight: 600;
+    background-color: #336699;
+    padding: 5px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    /* display: inline-block; */
+}
+
+.wrap-collabsible {
+    margin-bottom: 5px;
+}
+
+input[type='checkbox'] {
+  display: none;
+}
+
+.lbl-toggle {
+  display: block;
+
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+
+  padding: 10px;
+
+  color: #1d1d1d;
+  background: #ececec;
+
+  cursor: pointer;
+
+  border-radius: 7px;
+  transition: all 0.25s ease-out;
+}
+
+.lbl-toggle span
+{
+    background-color: #5a5757;
+    padding: 10px;
+    color: white;
+}
+.lbl-toggle:hover {
+    background: #dedede;
+}
+
+.lbl-toggle::before {
+  content: ' ';
+  display: inline-block;
+
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid currentColor;
+  vertical-align: middle;
+  margin-right: .7rem;
+  transform: translateY(-2px);
+
+  transition: transform .2s ease-out;
+}
+
+.toggle:checked + .lbl-toggle::before {
+  transform: rotate(90deg) translateX(-3px);
+}
+
+.collapsible-content {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height .25s ease-in-out;
+}
+
+.toggle:checked + .lbl-toggle + .collapsible-content {
+  max-height: 350px;
+}
+
+.toggle:checked + .lbl-toggle {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.collapsible-content .content-inner {
+  background: rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(236, 236, 236);
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  padding: .5rem 1rem;
+}
+
+.content-inner p
+{
+    font-family: Arial;
+}
+
+.content-inner p > span 
+{
+   font-weight: bold;
+}
+

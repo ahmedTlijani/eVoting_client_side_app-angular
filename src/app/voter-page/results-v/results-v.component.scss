@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+.result-container
+{
+    background-color: #0086a3;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    //background-image: url("https://ak2.picdn.net/shutterstock/videos/32465332/thumb/1.jpg");
+}
+.result
+{
+    width: 57%;
+    position: absolute;
+    left: 24%;
+    top: 10%;
+}
+.back-ground
+{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: #00afe1;
+}
+
+.back-ground .top
+{
+    height: 100%;
+    width: 100%;
+    background-color: #66d4ff;
+    top: 50%;
+    position: absolute;
+    overflow: hidden;
+    transform: skewY(-5deg);
+}
+.coutdown
+{
+    text-align: center;
+}
+.title{
+    margin-bottom: 15px;
+}
+.title > label
+{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color:white
+}
+.title-1 > label{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color:white;
+}
+
+$color : #3782ab;
+.timer {
+    display: inline-flex;
+    margin-top: 40px;
+    //border: 2px solid white;
+    //padding: 20px;
+}
+.time-label
+{
+    font-family: Arial;
+    font-size: 23px;
+    font-weight: 600;
+    margin-right: 20px;
+}
+.time-label:nth-last-child
+{
+    margin-right: 0;
+}
+.t
+{   
+    font-size: 13px;
+    color: white;
+    background-color: #0a0a0a;
+    padding: 2px;
+}
+.time-value
+{
+    padding: 5px;
+    width: auto;
+    color: white;
+    font-size: 14px;
+    border-radius: 7px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    text-align: center;
+}
+.example-fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+  }

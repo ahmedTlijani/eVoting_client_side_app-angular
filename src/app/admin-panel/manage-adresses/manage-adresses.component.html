@@ -1,0 +1,98 @@
+
+<div class="manage_adresse__container" >
+  <div class="titre__" >
+
+    <label>  Admin Panel > Manage Locations </label>
+  </div>
+ 
+ 
+ <div style="margin-top: 15px;">
+  <button mat-button (click)="addOne()" ><mat-icon>perm_identity</mat-icon>Add address</button>
+
+  <!-- data table -->
+
+  <div style="margin-left: 18px;margin-right: 18px;">
+
+        <div style="display: flex">
+          <div style="width:90%">
+              <mat-form-field class="example-form-field" floatLabel="never">
+                  <input (keyup)="applyFilter($event.target.value)" matInput type="text" placeholder="Search" [(ngModel)]="searchValue" >
+                  <button style="font-size: 20px;" mat-button *ngIf="searchValue" matSuffix mat-icon-button aria-label="Clear" (click)="deleteSearch()">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </mat-form-field>
+          </div>
+          <div>
+              <button mat-raised-button (click)="reloadDataSet()">Reload Dataset</button>
+          </div>
+        </div>
+
+
+      <table mat-table [dataSource]="dataSource" matSort  class="mat-elevation-z8">
+
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+        
+          <!-- Id Column -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+            <td mat-cell *matCellDef="let element"> {{ element.adresse_id }} </td>
+          </ng-container>
+
+        <!-- State Column -->
+          <ng-container matColumnDef="state">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> State </th>
+            <td mat-cell *matCellDef="let element"> {{ element.state }}  </td>
+          </ng-container>
+
+           <!-- Province Column -->
+           <ng-container matColumnDef="province">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Province </th>
+            <td mat-cell *matCellDef="let element"> {{ element.province }}  </td>
+          </ng-container>
+
+        <!-- Code Column -->
+          <ng-container matColumnDef="code_postal">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Postal Code </th>
+            <td mat-cell *matCellDef="let element"> {{element.code_postal}} </td>
+          </ng-container>
+
+         <!-- Action Column -->
+          <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef > Actions </th>
+          <td mat-cell *matCellDef="let element"> 
+              <button style="color: #151515;" mat-button  color="primary" (click)="deleteOne(element)">
+                <mat-icon  style="color: #d40e0e;">delete_forever</mat-icon>
+                Delete
+              </button>
+
+              <button  style="color: #151515;" mat-button color="primary" (click)="updateOne(element)">
+                  <mat-icon style="color: #2e865a;">update</mat-icon>
+                  Update
+                </button>
+
+          </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-card *ngIf="isLoading" 
+          style="display: flex; justify-content: center; align-items: center">
+          <mat-progress-spinner 
+            color="primary" 
+            mode="indeterminate">
+          </mat-progress-spinner>
+        </mat-card>
+
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+    </div>
+
+</div>
+
+</div> <!-- container end -->
+
+<notifier-container></notifier-container>

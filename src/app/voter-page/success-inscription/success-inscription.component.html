@@ -1,0 +1,26 @@
+<div class="page-container">
+  <div class="back">
+    <img height="99%" width="100%" src="https://images.unsplash.com/photo-1520452112805-c6692c840af0">
+  </div>
+  <div class="message"> Register successfully - please wait until the voting date.</div>
+
+  <div class="center-content">
+    <div class="title"> <label>Election platfom 2019</label></div>
+    <div class="title-1"> <label> Election start : {{ deadline | date:short }} </label></div>
+   
+    <app-countdown-component deadline="November 10 2019 00:00:00 GMT+0200" ></app-countdown-component>
+
+    <div class="notification">
+      <div style="display: inline-flex;">
+        <div class="mail">  
+            <div> Email </div> <input>
+        </div>
+
+        <div class="btn">
+            <button mat-flat-button>Notify Me</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

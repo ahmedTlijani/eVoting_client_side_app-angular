@@ -1,0 +1,71 @@
+
+<div class="dashboard__container" >
+     <div class="titre__" >
+        <label>  Admin Panel > Dashboard </label>
+     </div>
+       
+     <div class="dashboard__content">
+      <div class="content-title margin__bot"> <label>Application Overview</label></div>
+
+      <div class="overview margin__bot">
+         <div class="card">
+               <div class="c-1 green-color">
+               <div class="card-icon">
+                  <mat-icon>group</mat-icon>
+               </div>
+               <div class="card-content">
+                  <label>Registered people</label>
+                  <p> {{personne_inscrit}} </p>
+                  <span> {{ personne_inscrit_percentage }}% of Population </span>
+               </div>
+            </div>
+         </div>
+         <div class="card">
+               <div class="c-1 red-color">
+               <div class="card-icon">
+                  <mat-icon>group</mat-icon>
+               </div>
+               <div class="card-content">
+                  <label>Électeurs</label>
+                  <p> {{voted_personne}} </p>
+                  <span> {{voted_personne_percentage}}% of Registred</span>
+               </div>
+            </div>
+         </div>
+         <div class="card">
+               <div class="c-1 blue-color">
+               <div class="card-icon">
+                  <mat-icon>person</mat-icon>
+               </div>
+               <div class="card-content">
+                  <label>partis Number</label>
+                  <p> {{nombre_parti}} </p>
+                  <span>The candidates</span>
+               </div>
+            </div>
+         </div>
+         <div class="card">
+               <div class="c-1 dark-color">
+               <div class="card-icon">
+                  <mat-icon>account_balance</mat-icon>
+               </div>
+               <div class="card-content">
+                  <label>Election Offices</label>
+                  <p> {{nombre_bureaux}} </p>
+                  <span>With managers </span>
+               </div>
+            </div>
+         </div>
+
+      </div>
+
+      <div class="content-title margin__bot"  style="margin-bottom: 25px !important; "> <label>Voter Inscription Per State</label> </div>
+      <div class="overview-chart margin__bot">
+         <app-voter-inscription-chart></app-voter-inscription-chart>
+      </div>
+      
+
+
+     </div>   
+
+  </div>

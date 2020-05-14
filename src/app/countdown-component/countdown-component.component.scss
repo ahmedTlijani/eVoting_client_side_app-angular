@@ -1,0 +1,38 @@
+$color : #3782ab;
+.timer {
+    display: inline-flex;
+    margin-top: 40px;
+    //border: 2px solid white;
+    //padding: 20px;
+}
+.time-label
+{
+    font-family: Arial;
+    font-size: 23px;
+    font-weight: 600;
+    margin-right: 20px;
+}
+.time-label:nth-last-child
+{
+    margin-right: 0;
+}
+.t
+{   
+    font-size: 12px;
+    color: white;
+    background-color: black;
+    padding: 2px;
+}
+.time-value
+{
+    padding: 5px;
+    width: auto;
+    color: white;
+    //margin-top: 10px;
+    font-size: 50px;
+    border-radius: 7px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    background-color: $color;
+
+}

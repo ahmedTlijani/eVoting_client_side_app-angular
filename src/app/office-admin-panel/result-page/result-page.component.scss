@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+.dashboard__container
+{
+  padding: 10px
+}
+
+.dashboard__content
+{
+  margin-top: 20px;
+}
+
+.content-title
+{
+  margin-left: 10px;
+}
+.content-title label
+{ 
+  color: #272727;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: Arial;
+}
+
+.overview
+{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    position: absolute;
+    margin-left: 15%;
+
+}

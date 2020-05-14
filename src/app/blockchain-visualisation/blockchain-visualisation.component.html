@@ -1,0 +1,52 @@
+
+
+<div class="container-blockchain">
+
+    <div class="titre__" >
+        <label>  Admin Panel > Blockchain </label>
+      </div>
+    
+    <div class="rest">
+
+      <div class="title">
+        Blockchain Visualisation
+      </div>
+
+
+      <div *ngIf="isLoading" 
+        style="display: flex; justify-content: center; align-items: center">
+        <mat-progress-spinner 
+          color="primary" 
+          mode="indeterminate">
+        </mat-progress-spinner>
+      </div>
+
+        <div *ngFor="let element of chain; let i = index" class="wrap-collabsible">
+  
+            <input id="collapsible-{{i}}" class="toggle" type="checkbox">
+            <label for="collapsible-{{i}}" class="lbl-toggle">
+              <span *ngIf="i==0" >Genesis Block:</span>
+              <span *ngIf="i!=0" >Block {{ i }}:</span>
+              {{ element.hash }}
+            </label>
+            <div class="collapsible-content">
+              <div class="content-inner">
+                <p>
+                  <span>Previous Hash: </span>{{ element.previousHash }}
+                </p>
+                <p>
+                  <span>Data: </span>{{ element.data | json }}
+                </p>
+                <p>
+                  <span>TimeStamp: </span> {{ element.timeStamp }}
+                </p>
+                <p>
+                  <span>Nonce: </span> {{ element.nonce }}
+                </p>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+</div>

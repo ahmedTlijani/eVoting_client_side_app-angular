@@ -1,0 +1,71 @@
+<h1 mat-dialog-title> {{ element.type }} Parti</h1>
+
+
+<div mat-dialog-content>
+
+  <form [formGroup]="partiForm" (ngSubmit)="AddUpdateElement()">
+    
+    <div style="padding: 5px;">
+        
+          <mat-form-field style="width: 245px;" class="example-full-width">
+            <input minlength="1" formControlName="name" matInput placeholder="Nom" autocomplete="name" [(ngModel)]="elementData.name">
+          </mat-form-field> <br>
+          
+          <mat-form-field style="width: 245px;"> <!-- Independent / Coalition / party - حزبية أو ائتلافية أو مستقلة -->
+            <mat-select placeholder="Type" formControlName="type" [(ngModel)]="elementData.type" >
+              <mat-option value="Independent">Independent</mat-option>
+              <mat-option value="Coalition">Coalition</mat-option>
+              <mat-option value="Parti">Parti</mat-option>
+
+            </mat-select>
+          </mat-form-field><br>
+
+          <mat-form-field style="width: 245px;">
+            <mat-label>State</mat-label>
+            <mat-select formControlName="state" [(ngModel)]="state">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let state of states" [value]="state" (click)="loadProvince(state)">{{state}}</mat-option>
+            </mat-select>
+          </mat-form-field><br>
+    
+          
+          <div>
+              <mat-form-field style="width: 245px;">
+              <mat-label>Province</mat-label>
+              <mat-select formControlName="province" [disabled]="provinces.length==0" [(ngModel)]="province">
+                <mat-option >None</mat-option>
+                <mat-option *ngFor="let province of provinces" [value]="province" (click)="getCodePostal()">{{province}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div *ngIf="code_postal.length!=0" style="text-align: left;margin-top: 0px;margin-bottom: 0px;">
+              <label style="padding: 5px;background-color: #2f2f2f;color: white;font-family: Arial;">Postal code: {{ code_postal }} </label> <br>
+            </div>
+          
+           </div>
+          
+           <br>
+          <div>
+            <input  type="file" accept="image/*" (change)="onFileChanged($event)">
+            <div class="imgInfo" *ngIf="image_upladed_ || image_src_">
+              <label> {{image_src_}}</label>
+            </div>
+            <div style="margin-top: 10px;" *ngIf="selected_image_">
+                <button class="uplaodBtn" mat-button  type="button" (click)="uplaod()">
+                  <mat-icon style="margin-right: 5px;">cloud_upload</mat-icon>Upload</button>
+            </div>
+          </div> <br>
+
+ 
+  </div>
+    
+ </form>
+  
+</div>
+
+
+<div mat-dialog-actions align="end">
+  <button mat-button cdkFocusInitial (click)="onNoClick()">No Thanks</button>
+  <button mat-button   (click)="AddUpdateElement()" >{{ element.type }}</button>
+</div>
+
+<notifier-container></notifier-container>

@@ -1,0 +1,75 @@
+<mat-drawer-container class="example-container" autosize fullscreen [hasBackdrop]="hasBackdrop">
+  <mat-drawer #drawer class="example-sidenav" [mode]="menu_status" [(opened)]="opened"> <!-- over push side -->
+    <div class="menu">
+
+
+        <div class="smartphone-menu-trigger"></div>
+        <header class="avatar">
+            <div class="circle-ripple"></div>
+             <img height="100" width="100" src="http://dastudents.com/wp-content/uploads/2019/03/admin_icon.png" />
+          <h2>Admin.</h2>
+        </header>
+        <ul>
+          <li><button routerLink="/admin-panel/dashboard" class="btn-nav" mat-button (click)="close_if_over()"><mat-icon>home</mat-icon>Dashboard</button></li>
+          <li><button routerLink="/admin-panel/results" class="btn-nav" mat-button (click)="close_if_over()"><mat-icon>library_books</mat-icon>Results</button></li> 
+          <li><button routerLink="/admin-panel/manage-people" class="btn-nav" mat-button (click)="close_if_over()" ><mat-icon>wc</mat-icon>Manage People</button></li>
+           <li><button routerLink="/admin-panel/manage-offices-admins" class="btn-nav" mat-button (click)="close_if_over()"><mat-icon>groupe</mat-icon>Manage Office Admins</button></li>
+           <li><button routerLink="/admin-panel/manage-partis" class="btn-nav" mat-button (click)="close_if_over()"><mat-icon>supervisor_account</mat-icon>Manage Partis</button></li>
+           <li><button routerLink="/admin-panel/manage-voting-offices" class="btn-nav" mat-button (click)="close_if_over()"><mat-icon>domain</mat-icon>Manage Voting Offices</button></li>
+           <li><button routerLink="/admin-panel/manage-locations" class="btn-nav" mat-button (click)="close_if_over()"><mat-icon>map</mat-icon>Manage Locations</button></li>
+           <li><button routerLink="/admin-panel/electeur-list" class="btn-nav" mat-button (click)="close_if_over()"><mat-icon>record_voice_over</mat-icon>Voters List</button></li>
+           <li><button routerLink="/admin-panel/blockchain" class="btn-nav" mat-button (click)="close_if_over()"><mat-icon>extension</mat-icon>Blockchain visualisation</button></li>
+          </ul>
+ 
+    </div>
+      
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+
+      <mat-toolbar class="mat-color-custom" style="height: 64px !important;">
+        <button mat-icon-button (click)="drawer.toggle(); toogle_hasBackDrop_true()"><mat-icon>menu</mat-icon></button>
+        <button mat-button >Voting system platform</button>
+        <h1></h1>
+        <!-- <img style="width: 70px" src="../../assets/images/box.png"> -->
+
+          <!-- This fills the remaining space of the current row -->
+          <span class="example-fill-remaining-space"></span>
+
+          <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+          <mat-menu #menu="matMenu">
+             <button mat-menu-item (click)="logout()">
+               Logout
+            </button>
+          </mat-menu>
+      </mat-toolbar>
+
+      <div class="custom-content">
+        <div class="right__config_button">
+          <div class="btn_right__config_button">
+              <div [ngClass]="move_btn ? 'move_forward_animation' : 'move_backward_animation'" (click)="drawer_right.toggle(); toogle_hasBackDrop_false(); movebtn()">
+                  <mat-icon class="rotat_icon">settings</mat-icon>
+              </div>
+          </div>
+        </div>
+        <router-outlet></router-outlet>
+
+      </div>
+  </div>
+
+
+  <mat-drawer #drawer_right mode="over" opened="false" position="end">
+    <div class="close_button__">
+        <div (click)="drawer_right.toggle(); toogle_hasBackDrop_false();">
+            <mat-icon>close</mat-icon>
+        </div>
+
+    </div>
+    <div style="background: none;background-color: #272727;" class="menu">
+
+
+    </div>
+
+  </mat-drawer>
+
+</mat-drawer-container>

@@ -1,0 +1,23 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div *ngIf="showLoader" class="custom-loader___"> <!-- custom loader for all the app - same loader -->
+<!-- https://loading.io/css/ -->
+<div class="center-loader__">
+   <div class="loader__label">
+        <label>loading...</label>
+   </div> 
+   <!-- http://tobiasahlin.com/spinkit/ -->
+
+   <div style="text-align:center"> <!-- loader -->
+    <div style="display: inline-block;">
+            <div class="spinner">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                  </div>
+    </div>
+   </div>
+
+</div>
+</div>
+
+<router-outlet></router-outlet>

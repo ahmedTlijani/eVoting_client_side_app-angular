@@ -1,0 +1,625 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+/*
+Global colors
+*/
+
+$rippleColor: white;
+$titre__color: #336699; //#ac1616;
+
+$top_mat_custom__: #112847;
+
+// #2e7b90 #2e7b90 #98c9d6
+$menu--color__1: #336699; 
+$menu--color__2: #609edc;
+//$linear-gradient__: linear-gradient(to bottom, $menu--color__1 0%, $menu--color__2 57%, $menu--color__3 100%);
+$linear-gradient__: linear-gradient(to top, $menu--color__2 0%, $menu--color__1 100%);
+$full-back :#f3f3f3;//#336699;// #efefef;
+
+body {
+    margin: 0;
+}
+
+.titre__  
+{
+ // display: inline-block;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: $titre__color;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  //border: 1px solid white;
+  //background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.09), rgba(0, 0, 0, 0.0)), url('assets/images/lighBlueBox.png');
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: inherit;
+  box-shadow: 4px 4px 0px #00000017; // x y blur color
+  //animation: moveBG 20s ease-in-out infinite;
+ }
+ 
+ @keyframes moveBG {
+  0% {
+    background-position: 100% 50%;
+  }
+  50% { 
+    background-position: 97% 45%;
+  }
+  100% { 
+    background-position: 100% 50%;
+  }
+}
+
+.custom-tooltip {
+    background-color: #2b2b2b;
+    font-size:13px;
+    font-weight: 500;
+    padding-right:20px;
+}
+.counter-tooltip {
+  background-color: #2b2b2b;
+  font-size:13px !important;
+  max-width: 500px !important;
+  font-weight: 500 !important;
+  padding-right:20px !important;
+}
+
+ /* Add application styles & imports to this file! */
+@import "~angular-notifier/styles";
+
+
+.notifier__notification--warning {
+    background-color: #de0505;
+	color: #FFF;
+}
+
+.notifier__notification--info {
+  background-color: #035d92;
+color: #FFF;
+}
+
+
+.notifier__notification--material {
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    cursor: default;
+    padding-top: 11px;
+    padding-right: 26px;
+    padding-bottom: 10px;
+    padding-left: 26px;
+    font-weight: 500;
+    font-family: "Roboto", "Tahoma", "Trebuchet MS", "Arial", "Helvetica", sans-serif;
+    font-size: 12px;
+}
+
+ 
+.mat-progress-spinner circle, .mat-spinner circle {
+	stroke: #084eb1;
+}
+
+.middle .mat-progress-spinner circle, .mat-spinner circle {
+	stroke: white !important;
+}
+
+
+.custom-loader___{
+    width: 100%;
+    height: 100%;
+    background-color: #000000c9;
+    position: absolute;
+    z-index: 99999;
+    text-align: center;
+}
+.center-loader__
+{
+    display: inline-block;
+    top: 40%;
+    position: absolute;
+}
+.loader__label{
+font-family: Roboto,"Helvetica Neue",sans-serif;
+font-size: 16px;
+font-weight: 400;
+color: white;
+margin-bottom: 10px;
+animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+      opacity: 0.5
+    }
+  }
+
+// custom loader css 
+.spinner {
+     width: 70px;
+    text-align: center;
+  }
+  
+  .spinner > div {
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+  
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  }
+  
+  .spinner .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+  }
+  
+  .spinner .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+  }
+  
+  @-webkit-keyframes sk-bouncedelay {
+    0%, 80%, 100% { -webkit-transform: scale(0) }
+    40% { -webkit-transform: scale(1.0) }
+  }
+  
+  @keyframes sk-bouncedelay {
+    0%, 80%, 100% { 
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    } 40% { 
+      -webkit-transform: scale(1.0);
+      transform: scale(1.0);
+    }
+  }
+
+
+
+
+  // https://stackoverflow.com/questions/45928423/get-rid-of-white-space-around-angular-material-modal-dialog
+ .camera-dialog-container .mat-dialog-container {
+   padding: 0px !important;
+}
+
+.labelImgViewer
+{
+  color: #fff;
+  background-color: #2b2b2b;
+  padding: 2px;
+  padding: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/// ------------------ LOGIN AND INSCRIPTION FORM
+
+.full
+{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    //background: rgba(46,123,144,1);
+    //background: $linear-gradient__;
+    background-color: $full-back;
+    overflow: auto;
+}
+/* Form */
+
+.form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 300px;
+    margin: 0 auto 100px;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    //box-shadow: 3px 4px 0px #1f1f1f;
+  }
+  
+  
+  .form .thumbnail {
+    //background: #ececec;
+    //width: 160px;
+    /* height: 160px; */
+    margin: 0 auto 10px;
+    //padding: 5px;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    box-sizing: border-box;
+    
+  }
+  .form .thumbnail img {
+    display: block;
+    width: 100%;
+  }
+  
+  .form .thumbnail svg {
+    transform: scale(1.3);
+  }
+
+  // svg 
+  #logo_text path
+  {
+    fill: rgb(0, 104, 255);
+  }
+  .stroke_rec
+  {
+    stroke: rgb(0, 104, 255);//rgb(0, 104, 255);
+  }
+  .fill_rec
+  {
+    fill: rgb(0, 104, 255);
+  }
+  #box-card
+  {
+    transform-origin: center right;
+    transform: rotate(26deg);
+    animation: bulletin 2s ease-in infinite;
+  }
+
+  #urne
+  {
+    transform-origin: center;
+    animation: eurne 0.3s ease-in-out infinite;
+    animation-delay: 2s;
+    animation-duration: 4s;
+  }
+
+  @keyframes bulletin {
+    to { transform: rotate(-15deg) }
+  }
+
+  @keyframes urne {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+
+  }
+
+
+  .form .message {
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 12px;
+  }
+  .form .message a {
+    color: black;
+    text-decoration: none;
+  }
+   
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .container:before, .container:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  .container .info {
+    margin: 50px auto;
+    text-align: center;
+  }
+  .container .info h1 {
+    margin: 0 0 15px;
+    padding: 0;
+    font-size: 36px;
+    font-weight: 300;
+    color: #1a1a1a;
+  }
+  .container .info span {
+    color: #4d4d4d;
+    font-size: 12px;
+  }
+  .container .info span a {
+    color: #000000;
+    text-decoration: none;
+  }
+
+   
+  .continueButton{
+    background-color: #ac1616;
+  }
+
+  
+  /* END Form */
+
+
+///// -------- 
+
+.mat-color-custom
+{
+    //background: $top_mat_custom__;
+    //color: #fff;
+}
+.mat-toolbar h1
+  {
+      font-size: 15px !important;
+  }
+
+  .example-container {
+    width: 100%;
+    height: 100%;
+    position: static;
+  }
+  
+  .example-sidenav-content {
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+ 
+.mat-drawer-inner-container
+{
+    overflow: hidden !important;
+}
+
+.btn-nav
+{
+    font-size: 12px;
+    width: 100%;
+    border-radius: 0px;
+    height: 50px;
+    color: white;
+    text-align: left !important;
+    //background: #56c392;
+}
+
+.btn-nav mat-icon
+{
+  font-size: 20px;
+  margin-right: 3px;
+}
+.mat-toolbar-row, .mat-toolbar-single-row {
+    height: auto !important;
+}
+
+
+.logo-bot
+{
+     bottom: 0;
+    background-color: #464646;
+    width: 100%;
+    position: absolute;
+}
+
+
+// elminate a line in sidenav 
+.mat-drawer {
+  margin-left: 0px !important;
+}
+.mat-drawer-side {
+  border-right: solid 0px rgba(0,0,0,.12) !important;
+}
+
+
+// cirlce  ripple https://codepen.io/FabienMotte/pen/gPKVxE
+
+
+.circle-ripple {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  transform: translate(83px,60px);
+  animation: ripple 3s linear infinite;
+}
+
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba($rippleColor, 0.3),
+                0 0 0 1em rgba($rippleColor, 0.3),
+                0 0 0 2em rgba($rippleColor, 0.3),
+                0 0 0 3em rgba($rippleColor, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 0 1em rgba($rippleColor, 0.3),
+                0 0 0 2em rgba($rippleColor, 0.3),
+                0 0 0 3em rgba($rippleColor, 0.3),
+                0 0 0 5em rgba($rippleColor, 0);
+  }
+}
+@keyframes rippleAdjust {
+  0% {
+    box-shadow: 0 0 0 0 rgba($rippleColor, 0.3),
+                0 0 0 1em rgba($rippleColor, 0.3),
+                0 0 0 2em rgba($rippleColor, 0.3),
+                0 0 0 2.5em rgba($rippleColor, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 0 1em rgba($rippleColor, 0.3),
+                0 0 0 2em rgba($rippleColor, 0.3),
+                0 0 0 2.5em rgba($rippleColor, 0.3),
+                0 0 0 3em rgba($rippleColor, 0);
+  }
+}
+
+// -------------  https://codepen.io/kazzkiq/pen/pvqvxO?editors=1100
+ 
+  main {
+    position: relative;
+    height: 100%;
+  }
+  main .helper {
+    background: rgba(0, 0, 0, 0.2);
+    color: #464646;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    padding: 1.2em 2em;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 2em;
+    font-weight: bold;
+  }
+  main .helper span {
+    color: rgba(0, 0, 0, 0.2);
+    font-size: 0.4em;
+    display: block;
+  }
+  .menu {
+    //overflow: auto;
+    //overflow-x: hidden;
+    overflow-anchor: hidden;
+    //background: #2a94bf;
+    background: $linear-gradient__;
+    height: 100vh;
+    width: 202px;
+    //position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    outline: none;
+  }
+
+//custom scroll 
+
+.menu::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+.menu::-webkit-scrollbar
+{
+    width: 3px;
+    background-color: #F5F5F5;
+}
+.menu::-webkit-scrollbar-thumb
+{
+    background-color: #0ae;
+    
+    background-image: -webkit-gradient(linear, 0 0, 0 100%,
+                       color-stop(.5, rgba(255, 255, 255, .2)),
+                       color-stop(.5, transparent), to(transparent));
+}
+
+  .menu .avatar {
+    //background: rgba(0, 0, 0, 0.1);
+    padding: 20px 10px 6px 10px;
+    text-align: center;
+  }
+  .menu .avatar img {
+    width: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid white;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+    position: relative;
+    
+  }
+  .menu .avatar h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin-bottom: 0;
+    font-size: 13px;
+    /* background-color: #00000061; */
+    text-transform: capitalize;
+    font-weight: 700;
+    /* padding: 4px; */
+    margin-top: 25px;
+    /* border-radius: 25px; */
+    /* box-shadow: 3px 3px 0px #00000017; */
+  }
+  .menu ul {
+    list-style: none;
+    padding: 0.5em 0;
+    margin: 0;
+  }
+  .menu ul li {
+    //padding: 0.5em 1em 0.5em 3em;
+    font-size: 0.95em;
+    font-weight: regular;
+    background-repeat: no-repeat;
+    background-position: left 15px center;
+    background-size: auto 20px;
+    transition: all 0.15s linear;
+    cursor: pointer;
+  }
+  .menu ul li:hover {
+    background-color: #27496b;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+ 
+  .menu ul li:focus {
+    outline: none;
+  }
+   
+
+  // right panel side 
+.right__config_button
+  {
+    text-align: center;
+    height: 100%;
+    width: 100%;
+
+  }
+.btn_right__config_button
+{
+    display: inline-block;
+    top: 45%;
+    position: fixed;
+    right: 0;
+    z-index: 999;
+}
+.btn_right__config_button > div
+{
+  text-align: center;
+    background-color: #272727;
+    padding: 3px;
+    color: white;
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.rotat_icon
+{
+  animation: spin 4s linear infinite 
+}
+@keyframes spin { 100% { transform:rotate(360deg); } }
+
+.move_forward_animation{
+  //animation: move_forward 0.33s ease-in-out forwards;
+}
+
+@keyframes move_forward
+{
+  100% { margin-right: 202px; }
+}
+
+.move_backward_animation{
+  //animation: move_backward 2s forwards;
+}
+@keyframes move_backward
+{
+  100% { margin-right: auto }
+}
+
+.close_button__
+{
+  position: absolute;
+  /* height: 30px; */
+  /* background: white; */
+  color: white;
+  right: 0;
+  text-align: center;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+.pie-chart-2019 {
+  //position: absolute !important;
+  //left: -12% !important;
+}

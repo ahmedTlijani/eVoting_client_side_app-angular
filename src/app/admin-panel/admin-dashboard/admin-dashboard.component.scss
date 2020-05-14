@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+.dashboard__container
+{
+  padding: 10px
+}
+
+.dashboard__content
+{
+  margin-top: 20px;
+}
+
+.content-title
+{
+  margin-left: 10px;
+}
+.content-title label
+{ 
+  color: #272727;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: Arial;
+}
+
+.overview
+{
+  //height: 200px;
+  //padding: 10px;
+  //background-color: #e6e6e6;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.overview-chart
+{
+  text-align: center;
+  background-color: white;
+}
+
+.margin__bot
+{
+  margin-bottom: 15px;
+}
+
+.card{
+  width: auto;
+  border-radius: 3px;
+  margin: 10px 10px 10px 10px;
+  width: 23%;
+}
+
+@media screen and (max-width: 1300px) {
+  .card {
+    width: 47%; 
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .card {
+    width: 97%; 
+  }
+}
+
+
+.c-1 
+{
+  padding: 25px;
+  align-items: center !important;
+  display: flex !important;
+}
+.card-icon
+{
+  margin-right: 20px;
+}
+.card-icon > mat-icon
+{
+  color: white;
+  opacity: 0.7;
+  font-size: 50px;
+}
+
+.card-content
+{
+  margin-left: 20px;
+}
+.card-content label
+{
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Montserrat", "Fira Sans", "Helvetica Neue", Arial, sans-serif;
+}
+.card-content p
+{
+  font-size: 24px;
+  line-height: 1.1;
+  color: #fff;
+  font-family: "Lato", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  margin-bottom: 2px;
+  margin-top: 10px;
+}
+.card-content span 
+{
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+}
+
+.green-color 
+{
+  background-color: #038e79;  
+}
+.red-color
+{
+  background-color: #dc3545 !important;
+}
+.blue-color 
+{
+  background-color: #0866C6 !important;
+}
+.dark-color
+{
+  background-color: #1D2939;
+}

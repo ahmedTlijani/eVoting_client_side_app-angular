@@ -1,0 +1,96 @@
+
+
+<div class="container-result" >
+  
+  <div>
+      <mat-form-field>
+          <mat-label>Select a state</mat-label>
+          <mat-select [(value)]="selectedState">
+            <mat-option (click)="selectState(null)" >None</mat-option>
+            <mat-option (click)="selectState(element)" *ngFor="let element of states" value="element">{{element}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+  </div>
+
+
+  <div #screen style="padding: 6px;">
+  
+  <div class="header-result">
+    <div class="top">
+      <!--
+      <img height="50" width="50" src="https://www.lyoncapitale.fr/wp-content/uploads/2019/02/game-of-thrones-770x433.jpg">
+      <div class="title">
+        <h1>Ahmed tlijani,<label> Entrepreneur in Residance at First Finance</label></h1>
+        <p>284k follower <span>But not social media fun</span> </p>
+      </div>
+      -->
+      <div class="print-1">
+        <span>
+            <button [matMenuTriggerFor]="appMenu" mat-icon-button style="color:#383838">
+                <mat-icon aria-label="Example icon-button with a heart icon">menu</mat-icon>
+            </button>
+            <mat-menu #appMenu="matMenu">
+               <!-- <button style="margin-top: -10px;" mat-menu-item (click)="print()">
+                    <mat-icon>print</mat-icon>Print</button>  --> 
+                <button style="margin-top: -10px;" mat-menu-item (click)="savePdf()">
+                    <mat-icon>cloud_download</mat-icon>Save as PDF</button>
+                <button  style="margin-bottom: -10px;" mat-menu-item (click)="saveImage()">
+                    <mat-icon>image</mat-icon>Save as Image</button>
+            </mat-menu>
+
+        </span>
+      </div>
+    </div>
+    <div class="bot">
+      <h1>Election Results - Tunisia 2019 <span *ngIf="state">-</span> {{state}} </h1>
+      <!-- 
+      <div class="hashtags">
+        <span>ui</span><span>ux</span><span>designer</span><span>user experience</span><span>tools</span>
+      </div>
+      -->
+    </div>
+  </div>
+  <div class="content-result">
+    
+    <div>
+
+      <mat-card *ngIf="isLoading" 
+                      style="display: flex; justify-content: center; align-items: center;background-color: #ff000000;box-shadow: 0 0px 0px 0px rgba(0,0,0,0);">
+                      <mat-progress-spinner 
+                        color="primary" 
+                        mode="indeterminate">
+                      </mat-progress-spinner>
+      </mat-card> 
+
+      <div *ngFor="let element of parties_stat" class="progresse-bar">
+        <div class="bar">
+          <div class="back-bar" [ngStyle]="{'width': element.percentage +'%'}"></div> <!--style="width: 32%;"-->
+          <div class="content-bar" >
+            <img src="{{element.image}}">
+            <label class="name"> {{ element.name }} </label>
+            <label class="per">  
+              <span *ngIf="!stateIsLoading" >{{element.percentage}}% - {{element.qte}} voter</span>
+              <span class="loader-stat lds-dual-ring" *ngIf="stateIsLoading"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="info">
+        <span style="margin-right: 3px;">Total Votes : </span>
+        <span *ngIf="!stateIsLoading" >{{ total_eleteur }} voter</span>
+        <span class="loader-stat-t lds-dual-ring" *ngIf="stateIsLoading"></span>
+    </div>
+
+  </div>
+
+  <div id="download">
+      <img #canvas>
+      <a #downloadLink></a>
+    </div>
+
+  </div>
+
+</div>

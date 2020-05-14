@@ -1,0 +1,54 @@
+<div style="padding:20px;">
+
+
+<h1 mat-dialog-title> {{ element.type }} Election Office </h1>
+
+
+<div mat-dialog-content>
+
+  <form [formGroup]="votingForm" (ngSubmit)="AddUpdateElement()">
+    
+          <mat-form-field class="example-full-width">
+            <input minlength="1" formControlName="name" matInput placeholder="Nom" autocomplete="name" [(ngModel)]="elementData.name">
+          </mat-form-field> <br>
+ 
+    
+          <mat-form-field>
+            <mat-label>State</mat-label>
+            <mat-select formControlName="state" [(ngModel)]="state">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let state of states" [value]="state" (click)="loadProvince(state)">{{state}}</mat-option>
+            </mat-select>
+          </mat-form-field><br>
+          
+      
+              <mat-form-field>
+              <mat-label>Province</mat-label>
+              <mat-select formControlName="province" [disabled]="provinces.length==0" [(ngModel)]="province">
+                <mat-option >None</mat-option>
+                <mat-option *ngFor="let province of provinces" [value]="province" (click)="getCodePostal()">{{province}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div *ngIf="code_postal.length!=0" style="text-align: left;margin-top: 0px;margin-bottom: 0px;">
+              <label style="padding: 5px;background-color: #2f2f2f;color: white;font-family: Arial;">Postal code: {{ code_postal }} </label> <br>
+            </div><br>
+
+            <mat-form-field class="example-full-width">
+              <input type="number" formControlName="maxNumber" matInput placeholder="Nombre Max des electeurs" autocomplete="maxNumber" [(ngModel)]="elementData.max_number_voter">
+            </mat-form-field> <br>
+
+
+    
+ </form>
+  
+</div>
+
+
+<div mat-dialog-actions align="end">
+  <button mat-button cdkFocusInitial (click)="onNoClick()">No Thanks</button>
+  <button mat-button  (click)="AddUpdateElement()" >{{ element.type }}</button>
+</div>
+
+</div>
+
+<notifier-container></notifier-container>

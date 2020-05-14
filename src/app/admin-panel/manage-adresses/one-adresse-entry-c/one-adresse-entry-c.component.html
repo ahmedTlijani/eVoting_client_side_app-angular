@@ -1,0 +1,35 @@
+<h1 mat-dialog-title> {{ element.type }} Address</h1>
+
+
+<div mat-dialog-content>
+
+  <form [formGroup]="adresseForm" (ngSubmit)="AddUpdateElement()">
+
+    <!-- State Column -->
+    <mat-form-field class="example-full-width">
+      <input minlength="1" formControlName="state" matInput placeholder="State" autocomplete="state" [(ngModel)]="elementData.state">
+    </mat-form-field> <br>
+
+    <!-- Province Column -->
+    <mat-form-field class="example-full-width">
+      <input minlength="1" formControlName="province" matInput placeholder="Province" autocomplete="province" [(ngModel)]="elementData.province">
+    </mat-form-field> <br>
+
+     <!-- code postal Column -->
+    <mat-form-field class="example-full-width">
+      <input minlength="1" (keypress)="numberOnly($event)" formControlName="code_postal" matInput placeholder="Code Postal" autocomplete="province" [(ngModel)]="elementData.code_postal">
+    </mat-form-field> 
+    <div class="code-postal-error" *ngIf="code_postal_error.length!=0" >{{code_postal_error}}</div>
+    <br>
+    
+ </form>
+  
+</div>
+
+
+<div mat-dialog-actions align="end">
+  <button mat-button cdkFocusInitial (click)="onNoClick()">No Thanks</button>
+  <button mat-button   (click)="AddUpdateElement()" >{{ element.type }}</button>
+</div>
+
+<notifier-container></notifier-container>
